@@ -2,6 +2,7 @@ import webpack from 'webpack'
 import path from 'path'
 import autoprefixer from 'autoprefixer'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+var BrowserSyncPlugin          = require('browser-sync-webpack-plugin');  
 
 let extractStyles = new ExtractTextPlugin('[name].css')
 let extractHtml = new ExtractTextPlugin('[name].html')
@@ -58,6 +59,15 @@ let config = {
     ]
   },
   plugins: [
+    new BrowserSyncPlugin({
+      host: 'localhost',
+      port: 3000,
+      server: { baseDir: ['build'] },
+      files: [
+          'build/css/*.css',
+          'build/*.html'
+      ]
+  }),
     new webpack.LoaderOptionsPlugin({
       minimize: false,
       debug: true,

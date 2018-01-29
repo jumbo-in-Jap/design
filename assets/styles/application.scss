@@ -10,8 +10,14 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body{
+  background-color: aqua;
+}
+
 @import "components/headlines";
 @import "components/header";
 @import "components/footer";
 @import "components/container";
 @import "components/post";
+
+
